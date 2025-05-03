@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@plugin "flowbite/plugin";
 @custom-variant dark (&:where(.dark, .dark *));
 
 #root{
@@ -14,10 +14,27 @@
 .bg-base-dark{
   background-color: #161515;
 }
+.movie-item-wrapper::-webkit-scrollbar{
+  display: none;
+  position: relative;
+  top: 10%;
+  background-color: #ffffff00;
+  height: 8px;
+  border-radius: 100px;
+}
+.movie-item-wrapper::-webkit-scrollbar-track{
+  width: 100px !important;
+}
+.movie-item-wrapper::-webkit-scrollbar-thumb{
+  border-radius: 100px;
+  cursor: pointer;
+  width: 5% !important;
+  background-color:  #d40000;
+}
 @media (min-width: 425px){
   .global-px{
     padding-left: 80px;
-  padding-right: 80px;
+    padding-right: 80px;
   }
 }
 @media (min-width: 375px){
