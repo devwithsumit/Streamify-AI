@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const MenuDropDown = () => {
   return (
-      <div id="navbar-user" onClick={() => document.getElementById("navbar-user").classList.add("hidden")}
+      <div id="navbar-user"
           className="items-center justify-between hidden w-full mt-1 order-4">
           <ul
               className="flex flex-col shadow font-medium p-4 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse dark:bg-[#252424] dark:border-neutral-700">

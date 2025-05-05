@@ -50,7 +50,7 @@ const Navbar = () => {
                                     Get started
                                 </Link>
                                 :
-                                <button onClick={() => document.getElementById("user-dropdown").classList.toggle("hidden")} id="user-menu-button" type="button"
+                                <button id="user-menu-button" type="button"
                                     className="flex text-sm bg-gray-800 rounded-full md:ml-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                                     aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                                     {/* Profile */}
@@ -62,7 +62,7 @@ const Navbar = () => {
                         {/* User Drop Down */}
                         <UserDropDown user={user} handleSignOut={handleSignOut} />
                         {/* Menu Button */}
-                        <button onClick={() => document.getElementById("navbar-user").classList.toggle("hidden")}
+                        <button
                             data-collapse-toggle="navbar-user" type="button"
                             className="inline-flex -mr-2 items-center p-2 w-10 h-10 justify-center text-sm text-gray-900 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             aria-controls="navbar-user" aria-expanded="false">
