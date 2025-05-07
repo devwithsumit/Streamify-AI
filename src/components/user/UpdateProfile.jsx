@@ -28,18 +28,21 @@ const UpdateProfile = () => {
         });
     }
     return (
-        <div className="mt-20 bg-gradient-to-r from-neutral-700 to-neutral-200 min-h-screen flex items-center justify-center p-4">
-            <div className="font-std mb-10 w-full rounded-2xl bg-white text-gray-900 dark:bg-neutral-800 dark:text-white/90 p-10 font-normal leading-relaxed shadow-xl">
+        <div className="mt-28 sm:mt-14 sm:px-20 min-h-screen flex items-center justify-center p-4">
+            <div className="font-std bg-gradient-to-br dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-700 p-5 mx-auto sm:p-10 mb-10 w-full sm:w-1/2 rounded-2xl bg-white text-gray-900 dark:bg-neutral-800 dark:text-white/90 font-normal leading-relaxed shadow-xl">
                 <div className="flex flex-col">
                     <div className="flex flex-col md:flex-row justify-between mb-5 items-start">
-                        <h2 className="mb-5 text-4xl font-bold text-[#cd0b0bf0]">Update Profile</h2>
-                        <div className="text-center">
+                        <h2 className="mb-5 text-3xl font-bold dark:text-[#f3ececf0]">Update Profile</h2>
+                        <div className="text-center w-full sm:w-fit">
                             <div>
-                                <img src="https://i.pravatar.cc/300" alt="Profile Picture" className="rounded-full w-32 h-32 mx-auto border-4 border-red-800 mb-4 transition-transform duration-300 hover:scale-105 ring ring-gray-300" />
+                                <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 w-32 p-1 rounded-full aspect-square mb-4 mx-auto'>
+
+                                <img src="https://i.pravatar.cc/300" alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300 hover:scale-105" />
+                                </div>
                                 <input type="file" name="profile" id="upload_profile" hidden required />
 
                                 <label htmlFor="upload_profile" className="inline-flex items-center">
-                                    <svg data-slot="icon" className="w-5 h-5 text-red-700" fill="none" strokeWidth="1.5"
+                                    <svg data-slot="icon" className="w-5 h-5 dark:text-white" fill="none" strokeWidth="1.5"
                                         stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                         aria-hidden="true">
                                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -51,7 +54,7 @@ const UpdateProfile = () => {
                                     </svg>
                                 </label>
                             </div>
-                            <button className="bg-red-700/90 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors duration-200 ring dark:ring-gray-500 ring-gray-300">
+                            <button className="hover:bg-gray-200 dark:hover:bg-neutral-700 dark:text-white px-4 py-2 rounded-lg transition-colors duration-200 ring dark:ring-gray-500 ring-gray-300">
                                 Change Profile Picture
                             </button>
                         </div>
@@ -63,37 +66,36 @@ const UpdateProfile = () => {
                             <label htmlFor="name" className="block text-sm font-medium">Full Name</label>
                             <input type="text" id="name" placeholder='No Name'
                                 value={name} onChange={(e) => setName(e.target.value)}
-                                className={`w-full bg-neutral-200 px-3 py-2 border ${name ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
+                                className={`w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border ${name ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
                             />
                         </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium">Email</label>
                             <input type="email" id="email" readOnly
                                 value={email} onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-neutral-200 px-3 py-2 border text-black/50 rounded-md outline-none"
+                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/50 rounded-md outline-none"
                             />
                         </div>
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium">Phone</label>
                             <input type="text" id="phone" placeholder='+91 876543545' readOnly
-                                value={phone} onChange={(e) => setPhone(e.target.value)}
-                                className="w-full bg-neutral-200 px-3 py-2 border text-black/50 rounded-md outline-none" />
+                                onChange={(e) => setPhone(e.target.value)}
+                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/50 rounded-md outline-none" />
                         </div>
                         {/* <div>
                             <label htmlFor="title" className="block text-sm font-medium">Title</label>
                             <input type="text" id="title" placeholder='Software Developer'
                                 value=""
-                                className="w-full bg-neutral-200 px-3 py-2 border text-black/80 rounded-md outline-none"
+                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/80 rounded-md outline-none"
                             />
                         </div> */}
                         {/* SUbmit button */}
-                        <div className="flex justify-end space-x-4">
-                            <button type="button" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">Cancel</button>
-                            <button type="submit" className="px-4 py-2 bg-[#c71111f0] text-white rounded-lg hover:bg-red-800">Save Changes</button>
+                        <div className="flex justify-between sm:justify-end space-x-4">
+                            <button type="button" className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">Cancel</button>
+                            <button type="submit" className="px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800 rounded-lg">Save Changes</button>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     )
