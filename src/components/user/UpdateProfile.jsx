@@ -4,28 +4,37 @@ import { updateEmail, updatePhoneNumber, updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { extractString } from '../../utils/authUtils';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateUserProfile } from '../../redux/slices/userSlice';
 
 const UpdateProfile = () => {
     const user = auth.currentUser
     const [email, setEmail] = useState(user?.email);
-    const [name, setName] = useState(user?.displayName);
+    const [displayName, setDisplayName] = useState(user?.displayName);
     const [phone, setPhone] = useState(user?.phoneNumber);
+    const [photoURL, setPhotoURL] = useState("https://i.pravatar.cc/300");
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        updateProfile(auth.currentUser, {
-            displayName: name, photoURL: "https://i.pravatar.cc/300",
-        }).then(() => {
+        try {
+            if (photoURL.length == 0) photoURL = 'https://i.pravatar.cc/300';
+            await updateProfile(auth.currentUser, {
+                displayName: displayName, photoURL : photoURL,
+            })
             navigate("/home");
+            dispatch(updateUserProfile({
+                displayName: displayName,
+                photoURL,
+            }));
             toast.success("Updated User Succussfully")
-        }).catch((error) => {
+        } catch (error) {
             // An error occurred
-            // ...
             console.log(error);
             toast.error("Error updating user:", extractString(error.code));
-        });
+        }
     }
     return (
         <div className="mt-28 sm:mt-14 sm:px-20 min-h-screen flex items-center justify-center p-4">
@@ -35,9 +44,9 @@ const UpdateProfile = () => {
                         <h2 className="mb-5 text-3xl font-bold dark:text-[#f3ececf0]">Update Profile</h2>
                         <div className="text-center w-full sm:w-fit">
                             <div>
-                                <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 w-32 p-1 rounded-full aspect-square mb-4 mx-auto'>
+                                <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 hover:to-blue-500 hover:from-red-500 transition-colors duration-300 w-32 p-1 rounded-full aspect-square mb-4 mx-auto'>
 
-                                <img src="https://i.pravatar.cc/300" alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300 hover:scale-105" />
+                                <img src="https://i.pravatar.cc/300" alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300" />
                                 </div>
                                 <input type="file" name="profile" id="upload_profile" hidden required />
 
@@ -65,8 +74,15 @@ const UpdateProfile = () => {
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium">Full Name</label>
                             <input type="text" id="name" placeholder='No Name'
-                                value={name} onChange={(e) => setName(e.target.value)}
-                                className={`w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border ${name ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
+                                value={displayName} onChange={(e) => setDisplayName(e.target.value)}
+                                className={`w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border ${displayName ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="profile_url" className="block text-sm font-medium">Profile Picture Url</label>
+                            <input type="text" id="profile_url" placeholder='Enter your profile picture url..'
+                                value={photoURL} onChange={(e)=> setPhotoURL(e.target.value)}
+                                className="w-full dark:bg-neutral-200 placeholder:text-gray-600 border-neutral-300 px-3 py-2 border text-black rounded-md outline-none"
                             />
                         </div>
                         <div>
@@ -82,13 +98,6 @@ const UpdateProfile = () => {
                                 onChange={(e) => setPhone(e.target.value)}
                                 className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/50 rounded-md outline-none" />
                         </div>
-                        {/* <div>
-                            <label htmlFor="title" className="block text-sm font-medium">Title</label>
-                            <input type="text" id="title" placeholder='Software Developer'
-                                value=""
-                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/80 rounded-md outline-none"
-                            />
-                        </div> */}
                         {/* SUbmit button */}
                         <div className="flex justify-between sm:justify-end space-x-4">
                             <button type="button" className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">Cancel</button>

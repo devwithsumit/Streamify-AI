@@ -5,7 +5,7 @@ import Footer from './components/main/Footer'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 
-import { onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged, onIdTokenChanged } from 'firebase/auth'
 import { auth } from '../firebase.config'
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from './redux/slices/userSlice'
@@ -44,7 +44,7 @@ function App() {
       // unsubscribe when component unmounts
       unsubscribe();
     }
-  }, [])
+  }, [dispatch])
 
 
   if (!online) {
