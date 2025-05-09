@@ -20,9 +20,8 @@ const UpdateProfile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (photoURL.length == 0) photoURL = 'https://i.pravatar.cc/300';
             await updateProfile(auth.currentUser, {
-                displayName: displayName, photoURL : photoURL,
+                displayName: displayName, photoURL,
             })
             navigate("/home");
             dispatch(updateUserProfile({
@@ -31,7 +30,6 @@ const UpdateProfile = () => {
             }));
             toast.success("Updated User Succussfully")
         } catch (error) {
-            // An error occurred
             console.log(error);
             toast.error("Error updating user:", extractString(error.code));
         }
@@ -45,8 +43,7 @@ const UpdateProfile = () => {
                         <div className="text-center w-full sm:w-fit">
                             <div>
                                 <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 hover:to-blue-500 hover:from-red-500 transition-colors duration-300 w-32 p-1 rounded-full aspect-square mb-4 mx-auto'>
-
-                                <img src="https://i.pravatar.cc/300" alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300" />
+                                    <img src={(user?.photoURL) || 'defaultProfile.png'} alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300" />
                                 </div>
                                 <input type="file" name="profile" id="upload_profile" hidden required />
 

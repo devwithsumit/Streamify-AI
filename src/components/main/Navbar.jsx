@@ -24,7 +24,6 @@ const Navbar = () => {
             toast.error(error);
         });
     }
-
     return (
         <>
             <nav className="bg-[white]/15 h-fit z-[99] border-gray-200 fixed top-0 left-0 w-full backdrop-blur-xs dark:bg-[#161515]/50 backdrop-opacity-95 p-4 global-px">
@@ -55,8 +54,8 @@ const Navbar = () => {
                                     aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                                     {/* Profile */}
                                     <span className="sr-only">Open user menu</span>
-                                    <img className="w-7 sm:w-8 aspect-square rounded-full"
-                                        src={user.photoURL || 'defaultProfile.png'} alt="user photo" />
+                                    <img className="w-7 sm:w-8 aspect-square rounded-full text-[8px] overflow-hidden"
+                                        src={user.photoURL || 'defaultProfile.png'} alt="Invalid" />
                                 </button>
                         }
                         {/* User Drop Down */}
