@@ -35,14 +35,14 @@ const UpdateProfile = () => {
         }
     }
     return (
-        <div className="mt-28 sm:mt-14 sm:px-20 min-h-screen flex items-center justify-center p-4">
-            <div className="font-std bg-gradient-to-br dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-700 p-5 mx-auto sm:p-10 mb-10 w-full sm:w-1/2 rounded-2xl bg-white text-gray-900 dark:bg-neutral-800 dark:text-white/90 font-normal leading-relaxed shadow-xl">
+        <div className="mt-28 sm:mt-10 sm:px-20 min-h-screen flex items-center justify-center p-4">
+            <div className="font-std bg-gradient-to-br dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-700 p-5 mx-auto sm:p-8 m w-full md:w-2/3 lg:w-1/2 rounded-2xl bg-white text-gray-900 dark:bg-neutral-800 dark:text-white/90 font-normal leading-relaxed shadow-xl">
                 <div className="flex flex-col">
-                    <div className="flex flex-col md:flex-row justify-between mb-5 items-start">
-                        <h2 className="mb-5 text-3xl font-bold dark:text-[#f3ececf0]">Update Profile</h2>
+                    <div className="flex flex-col md:flex-row justify-between mb-2 items-start">
+                        <h2 className="mb-5 text-3xl font-semibold dark:text-[#f3ececf0]">Update Profile</h2>
                         <div className="text-center w-full sm:w-fit">
                             <div>
-                                <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 hover:to-blue-500 hover:from-red-500 transition-colors duration-300 w-32 p-1 rounded-full aspect-square mb-4 mx-auto'>
+                                <div className='bg-gradient-to-br from-violet-600 via-blue-500 to-red-500 hover:to-blue-500 hover:from-red-500 transition-colors duration-300 w-30 p-1 rounded-full aspect-square mb-1 mx-auto'>
                                     <img src={(user?.photoURL) || 'defaultProfile.png'} alt="Profile Picture" className="rounded-full w-full h-full transition-transform duration-300" />
                                 </div>
                                 <input type="file" name="profile" id="upload_profile" hidden required />
@@ -67,38 +67,38 @@ const UpdateProfile = () => {
                     </div>
 
                     {/* Form */}
-                    <form className="space-y-4" onSubmit={handleSubmit}>
+                    <form className="space-y-[13px]" onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium">Full Name</label>
                             <input type="text" id="name" placeholder='No Name'
                                 value={displayName} onChange={(e) => setDisplayName(e.target.value)}
-                                className={`w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border ${displayName ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
+                                className={`w-full dark:bg-neutral-200 border-neutral-300 px-3 py-[6px] border ${displayName ? 'text-black/80' : 'text-black/50'} rounded-md outline-none`}
                             />
                         </div>
                         <div>
                             <label htmlFor="profile_url" className="block text-sm font-medium">Profile Picture Url</label>
                             <input type="text" id="profile_url" placeholder='Enter your profile picture url..'
                                 value={photoURL} onChange={(e) => setPhotoURL(e.target.value)}
-                                className="w-full dark:bg-neutral-200 placeholder:text-gray-600 border-neutral-300 px-3 py-2 border text-black rounded-md outline-none"
+                                className="w-full dark:bg-neutral-200 placeholder:text-gray-600 border-neutral-300 px-3 py-[6px] border text-black rounded-md outline-none"
                             />
                         </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium">Email</label>
                             <input type="email" id="email" readOnly
                                 value={email} onChange={(e) => setEmail(e.target.value)}
-                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/50 rounded-md outline-none"
+                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-[6px] border text-black/50 rounded-md outline-none"
                             />
                         </div>
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium">Phone</label>
                             <input type="text" id="phone" placeholder='+91 876543545' readOnly
                                 onChange={(e) => setPhone(e.target.value)}
-                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-2 border text-black/50 rounded-md outline-none" />
+                                className="w-full dark:bg-neutral-200 border-neutral-300 px-3 py-[6px] border text-black/50 rounded-md outline-none" />
                         </div>
                         {/* SUbmit button */}
                         <div className="flex justify-between sm:justify-end space-x-4">
-                            <button type="button" className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">Cancel</button>
-                            <button type="submit" className="px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800 rounded-lg">Save Changes</button>
+                            <button type="button" className="px-4 py-2  rounded-lg bg-neutral-900 text-white hover:bg-neutral-800">Cancel</button>
+                            <button type="submit" className="px-4 py-2 bg-gray-300 text-gray-800 hover:bg-neutral-900 duration-200 hover:text-white rounded-lg">Save Changes</button>
                         </div>
                     </form>
                 </div>
