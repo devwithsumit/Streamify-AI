@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+#root{
+  min-height: 100vh;
+  background-color: #161515;
+  color: whitesmoke;
+}
+.global-px{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.bg-base-dark{
+  background-color: #161515;
+}
+@media (min-width: 425px){
+  .global-px{
+    padding-left: 80px;
+  padding-right: 80px;
+  }
+}
+@media (min-width: 375px){
+  .global-px{
+    padding-left: 24px;
+  padding-right: 24px;
+  }
+}
