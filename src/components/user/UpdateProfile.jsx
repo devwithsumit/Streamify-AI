@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { auth } from '../../../firebase.config'
-import { updateEmail, updatePhoneNumber, updateProfile } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { extractString } from '../../utils/authUtils';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ const UpdateProfile = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -78,7 +78,7 @@ const UpdateProfile = () => {
                         <div>
                             <label htmlFor="profile_url" className="block text-sm font-medium">Profile Picture Url</label>
                             <input type="text" id="profile_url" placeholder='Enter your profile picture url..'
-                                value={photoURL} onChange={(e)=> setPhotoURL(e.target.value)}
+                                value={photoURL} onChange={(e) => setPhotoURL(e.target.value)}
                                 className="w-full dark:bg-neutral-200 placeholder:text-gray-600 border-neutral-300 px-3 py-2 border text-black rounded-md outline-none"
                             />
                         </div>

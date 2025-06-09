@@ -33,7 +33,7 @@ const HeroSection = () => {
                     </Link>
                 </div>
             </div>
-            <div className="absolute z-10 left-1/2 -translate-x-1/2 bottom-10 text-lg animate-bounce">
+            <div className="absolute text-white z-10 left-1/2 -translate-x-1/2 bottom-10 text-lg animate-bounce">
                 ↓ scroll for more
             </div>
         </div>
