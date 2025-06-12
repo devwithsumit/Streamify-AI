@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useSearchContext } from '../context/SearchContext';
 import MoviesSection from '../components/home/MoviesSection'
-import { IoClose } from 'react-icons/io5';
-import { IoMdArrowBack, IoMdCloseCircle } from 'react-icons/io';
+import { IoMdCloseCircle } from 'react-icons/io';
 const SearchPage = () => {
   const { prompt, response, searchedResults } = useSelector(state => state.search);
   // console.log(searchedResults);
@@ -30,7 +29,7 @@ const SearchPage = () => {
               {searchedResults &&  (
                 <MoviesSection
                   heading={response?.join(", ")}
-                  moviesList={searchedResults}
+                  sectionList={searchedResults}
                 />
               )}
             </div>

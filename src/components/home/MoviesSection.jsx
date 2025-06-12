@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard"
 
 
 const MoviesSection = ({ heading, sectionList }) => {
-    // console.log(heading, " ", moviesList);
+    // console.log(heading, " ", sectionList);
     return (
         <div className="section">
             <h1 className='text-xl sm:text-2xl font-bold mb-5 capitalize'>

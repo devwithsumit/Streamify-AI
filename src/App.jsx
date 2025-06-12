@@ -57,9 +57,10 @@ function App() {
       <Navbar />
       <div className="mb-auto" onClick={() => setIsSearchPage(false)}>
         <Routes>
-          <Route path='/update-profile' element={<UpdateProfile />} />
+          <Route path="/" element={<Home />} />  
+          <Route path="/home" element={<Home />} />  
           <Route path='/login' element={<SignIn />} />
-          <Route path='/home' element={<Home />}/>
+          <Route path='/update-profile' element={<UpdateProfile />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/services' element={<Services />} />

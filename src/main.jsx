@@ -8,13 +8,13 @@ import { store } from './redux/store.js'
 import SearchContextProvider from './context/SearchContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  //<StrictMode>
-  <Provider store={store}>
-    <BrowserRouter>
-      <SearchContextProvider>
-        <App />
-      </SearchContextProvider>
-    </BrowserRouter>
-  </Provider>
-  //</StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <SearchContextProvider>
+          <App />
+        </SearchContextProvider>
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>,
 )

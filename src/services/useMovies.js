@@ -38,7 +38,7 @@ export const useMovies = () => {
                 }
             } catch (error) {
                 toast.error(`Error fetching ${section} movies, read the console to see the error`);
-                console.log(err);
+                console.log(error);
             }
         }
     }
