@@ -39,7 +39,7 @@ git clone <[your-repo-url](https://github.com/devwithsumit/Streamify-AI.git)>
 
 ### 📂 Move to folder and Install Node Modules
 ```bash
-cd Streamify AI
+cd Streamify-AI
 npm install
 ```
 
