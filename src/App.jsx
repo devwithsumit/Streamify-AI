@@ -5,8 +5,8 @@ import Footer from './components/main/Footer'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 
-import { onAuthStateChanged, onIdTokenChanged } from 'firebase/auth'
-import { auth } from '../firebase.config'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from './config/firebase.config'
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from './redux/slices/userSlice'
 import { getSerializableUser } from './utils/authUtils'
@@ -24,7 +24,7 @@ function App() {
   const online = useOnlineStatus();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {setIsSearchPage} = useSearchContext();
+  const { setIsSearchPage } = useSearchContext();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -57,14 +57,14 @@ function App() {
       <Navbar />
       <div className="mb-auto" onClick={() => setIsSearchPage(false)}>
         <Routes>
-          <Route path="/" element={<Home />} />  
-          <Route path="/home" element={<Home />} />  
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path='/login' element={<SignIn />} />
           <Route path='/update-profile' element={<UpdateProfile />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/services' element={<Services />} />
-          <Route path='/movie/:id' element={<MoviePage />}/>
+          <Route path='/movie/:id' element={<MoviePage />} />
         </Routes>
       </div>
       <div onClick={() => setIsSearchPage(false)}>

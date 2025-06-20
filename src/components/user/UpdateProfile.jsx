@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { auth } from '../../../firebase.config'
+import { auth } from '../../config/firebase.config'
 import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { extractString } from '../../utils/authUtils';

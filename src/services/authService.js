@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithP
 import { GoogleAuthProvider } from "firebase/auth/web-extension";
 import { extractString } from "../utils/authUtils";
 import { toast } from "react-toastify";
-import { auth } from "../../firebase.config";
+import { auth } from "../config/firebase.config";
 
 const handleAuthSubmit = (isGoogleAuth, isSignUp, email, password) => {
     if (isGoogleAuth) {

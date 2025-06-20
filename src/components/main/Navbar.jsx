@@ -3,7 +3,7 @@ import Logo from './Logo';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../../firebase.config';
+import { auth } from '../../config/firebase.config';
 import UserDropDown from '../user/UserDropDown';
 import MenuDropDown from '../navbar/MenuDropDown';
 import SearchBar from '../navbar/SearchBar';
