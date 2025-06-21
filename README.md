@@ -34,7 +34,7 @@ Streamify AI is a modern movie collection app that lets users browse the latest 
 
 ### ⬇️ Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone <[your-repo-url](https://github.com/devwithsumit/Streamify-AI.git)>
 ```
 
 ### 📂 Move to folder and Install Node Modules
