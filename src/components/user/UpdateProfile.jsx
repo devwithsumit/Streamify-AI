@@ -12,7 +12,7 @@ const UpdateProfile = () => {
     const [email, setEmail] = useState(user?.email);
     const [displayName, setDisplayName] = useState(user?.displayName);
     const [phone, setPhone] = useState(user?.phoneNumber);
-    const [photoURL, setPhotoURL] = useState("https://i.pravatar.cc/300");
+    const [photoURL, setPhotoURL] = useState(user?.photoURL || "https://i.pravatar.cc/300");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();

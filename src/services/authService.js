@@ -1,5 +1,7 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, updateCurrentUser } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import {
+    createUserWithEmailAndPassword, GoogleAuthProvider,
+    signInWithEmailAndPassword, signInWithPopup,
+} from "firebase/auth";
 import { extractString } from "../utils/authUtils";
 import { toast } from "react-toastify";
 import { auth } from "../config/firebase.config";
@@ -7,14 +9,18 @@ import { auth } from "../config/firebase.config";
 const handleAuthSubmit = (isGoogleAuth, isSignUp, email, password) => {
     if (isGoogleAuth) {
         const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+            prompt: "select_account"
+        });
         signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
+
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                // console.log(user);
+                console.log(user);
                 toast.success("Logged in with Google Successfully");
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
